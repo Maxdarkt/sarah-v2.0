@@ -7,13 +7,13 @@
   <!-- MAIN CONTENT -->
   <main-content class="relative w-screen h-screen z-10" @event-scroll-to="scrollTo"/>
   <!-- SLIDE CONTENT -->
-  <CarousselSlide class="relative w-screen h-screen z-10" />
+  <caroussel-slide class="relative w-screen h-screen z-10" />
   <!-- GALLERY -->
-
+  <gallery-image class="relative z-10" />
   <!-- CONTACT -->
-
+  <contact-map class="relative z-10" />
   <!-- FOOTER -->
-
+  <the-footer class="relative z-10" @event-scroll-to="scrollTo" />
 </template>
 
 <script setup lang="ts">

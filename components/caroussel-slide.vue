@@ -44,9 +44,10 @@ onMounted(() => {
   launchTimer();
 })
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
   clearInterval(timer.value);
 })
+
 // launchTimer
 const launchTimer = () => {
   timer = setInterval(() => {

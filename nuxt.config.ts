@@ -10,32 +10,8 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: "Mon objectif est de vous guider dans votre évolution grâce à un panel de techniques qui vous permettront de retrouver forme, sérénité, bien-être, équilibre et santé... En tant que thérapeute, j'ai l'intime conviction que nos problématiques physiques récurrentes trouvent souvent leurs origines dans des émotions non intégrées du passé." }
       ],
-      link: [
-        // {
-        //   rel: 'preconnect',
-        //   href: 'https://fonts.googleapis.com'
-        // },
-        // {
-        //   rel: 'stylesheet',
-        //   href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap',
-        //   crossorigin: ''
-        // }
-      ],
-      script: [
-        // {
-        //   src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
-        //   type: "text/javascript"
-        // }, 
-        // {
-        //   src: 'assets/js/jquery.mb.YTPlayer.js'
-        // },
-        // {
-        //   src: 'assets/js/plugins.js'
-        // },
-        // {
-        //   src: './modernizr.custom.js'
-        // }
-      ],
+      link: [],
+      script: [],
       htmlAttrs: {
         lang: 'fr'
       }
@@ -63,4 +39,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   
   ],
+  plugins: [
+    '~/plugins/runtimeConfig.plugins.ts'
+  ]
 })
