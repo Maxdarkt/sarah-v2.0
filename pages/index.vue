@@ -2,18 +2,18 @@
   <!-- Loader -->
   <start-loading class="fixed top-0 left-0 w-screen h-screen" />
   <!-- SARAH IMBERT-BETEMPS -->
-  <home-part class="fixed top-0 left-0 w-screen h-screen" @event-scroll-to="scrollTo"/>
+  <home-part class="fixed top-0 left-0 w-screen h-screen" @event-scroll-to="scrollTo" />
   <div class="relative w-screen h-screen -z-10"></div>
   <!-- MAIN CONTENT -->
-  <main-content class="relative z-10"/>
+  <main-content class="relative w-screen h-screen z-10" @event-scroll-to="scrollTo"/>
   <!-- SLIDE CONTENT -->
-  <slide-content />
+  <CarousselSlide class="relative w-screen h-screen z-10" />
   <!-- GALLERY -->
 
   <!-- CONTACT -->
 
   <!-- FOOTER -->
-  
+
 </template>
 
 <script setup lang="ts">

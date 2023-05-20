@@ -2,7 +2,7 @@
   <!-- START SCROLL ARROWS BOTTOM -->
   <div class="scroll-indicator hover:opacity-100 cursor-pointer">
       <a href="#" @click="scrollDown">
-          <span class="m_scroll_arrows unu"></span>
+          <span id="arrow-1" class="m_scroll_arrows unu"></span>
           <span class="m_scroll_arrows doi"></span>
           <span class="m_scroll_arrows trei"></span>
       </a>

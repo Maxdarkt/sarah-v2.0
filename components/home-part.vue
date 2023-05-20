@@ -4,12 +4,12 @@
     class="transition-all duration-1000 bg-black"
     :class="hideHome ? '-z-20' : 'z-10'"
   >
-    <div class="w-screen h-screen bg-[url('/images/accueil_Sarah_Imbert-Betemps.jpg')] bg-cover bg-center z-10"></div>
+    <div class="w-screen h-screen slide bg-cover bg-center z-10"></div>
     <div class="fixed top-0 left-0 w-screen h-screen bg-black/40 z-10"></div>
     <div class="fixed top-0 left-0 w-screen h-screen flex flex-col items-center text-white space-y-2 z-20">
       <h1 class="text-4xl uppercase mt-48">Sarah Imbert-Bétemps</h1>
 
-      <h2 class="text-5xl font-bold">CHROMOPUNCTURE</h2>
+      <h2 class="text-5xl font-extrabold">CHROMOPUNCTURE</h2>
 
       <h3 class="text-2xl text-center font-normal px-32">
           Thérapeute Diplômée en Médecine Esogetics de
@@ -25,7 +25,7 @@
           Plus d'informations
       </a>
       <!-- END MAIN TEXT / BUTTONS -->
-      <scroll-indicator @event-scroll-down="scrollDown"/>
+      <scroll-indicator-white @event-scroll-down="scrollDown"/>
       <!-- END SCROLL ARROWS BOTTOM -->
     </div>
   </section>
@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 
-const emit = defineEmits(['eventScrollTo'])
+const emit = defineEmits(['eventScrollTo']);
 
 let hideHome = ref(true);
 
@@ -53,3 +53,9 @@ const scrollDown = () => {
 }
 
 </script>
+
+<style scoped>
+.slide {
+  background-image: url('~/assets/images/accueil_Sarah_Imbert-Betemps.jpg');
+}
+</style>

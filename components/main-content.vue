@@ -8,7 +8,7 @@
           Parler le langage de la cellule pour guérir le
           corps & l’esprit
       </h3>
-      <p class="text-lg font-light justify">
+      <p class="text-lg font-light text-justify">
           Mon objectif est de vous guider dans votre
           évolution grâce à un panel de techniques qui
           vous permettront de retrouver forme, sérénité,
@@ -18,7 +18,7 @@
           souvent leurs origines dans des émotions non
           intégrées du passé. 
       </p>
-      <p class="text-lg font-light justify">
+      <p class="text-lg font-light text-justify">
         C'est pourquoi, ma démarche
         s'inscrit dans une approche intégrative globale,
         qui associe les différents niveaux énergétiques.
@@ -30,13 +30,28 @@
           Sarah Imbert-Bétemps  
       </p>
     </div>
-    <div class="w-full h-full slide bg-cover bg-center grayscale">
+    <div class="w-full h-full bg-image bg-cover bg-[-16rem] bg-no-repeat grayscale">
     </div>
+    <scroll-indicator-accent @event-scroll-down="scrollDown" />
   </div>
 </template>
 
+<script setup lang="ts">
+
+const emit = defineEmits(['eventScrollTo']);
+
+const scrollDown = () => {
+  const mainContent = document.getElementById('caroussel');
+
+  console.log(mainContent?.offsetTop)
+
+  emit('eventScrollTo', mainContent?.offsetTop)
+}
+
+</script>
+
 <style scoped>
-.slide {
+.bg-image {
   background-image: url('~/assets/images/Sarah_Imbert_Betemps_chromopuncture_therapeute.jpg');
 }
 </style>
