@@ -1,16 +1,30 @@
 <template>
   <!-- Implement the carousel -->
   <div id="caroussel" class="relative overflow-hidden bg-white">
-    <!-- The dots -->
-    <div class="absolute right-0 bottom-0 left-0 flex justify-center p-0 space-x-5 z-10 w-full px-5 py-3 bg-black/90">
-      <!-- dot 1 -->
-      <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(1)"></div>
-      <!-- dot 2 -->
-      <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(2)"></div>
-      <!-- dot 3 -->
-      <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(3)"></div>
-      <!-- dot 4 -->
-      <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(4)"></div>
+    <!-- BOTTOM BAR -->
+    <div class="absolute right-0 bottom-0 left-0 flex justify-between p-0 z-10 w-full px-5 py-3 bg-black/90">
+      <!-- EMPTY BLOCK FOR justify-between -->
+      <div></div>
+      <!-- DOTS -->
+      <div class="flex justify-center items-center space-x-5">
+        <!-- dot 1 -->
+        <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(1)"></div>
+        <!-- dot 2 -->
+        <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(2)"></div>
+        <!-- dot 3 -->
+        <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(3)"></div>
+        <!-- dot 4 -->
+        <div class="dot-caroussel w-3 h-3 rounded-full cursor-pointer" @click="currentSlide(4)"></div>
+      </div>
+      <!-- BUTTON -->
+      <div class="text-white text-xs">
+        <button v-if="!isStopped" :key="keyStopped" class="btn-sm btn-circle btn-outline btn-accent flex justify-center items-center text-accent" @click="stopCaroussel">
+          <PauseIcon class="p-2"/>
+        </button>
+        <button v-else class="btn-sm btn-circle btn-outline btn-accent flex justify-center items-center text-accent" @click="launchCaroussel">
+          <PlayIcon class="p-2"/>
+        </button>
+      </div>
     </div>
     <!-- The pictures -->
     <div id="caroussel-first-slide" class="slide-caroussel absolute top-0 left-0 w-full bottom-0 transform transition-all duration-500 ease-in-out opacity-0">
@@ -33,10 +47,13 @@
 </template>
 
 <script setup lang="ts">
+import { PauseIcon, PlayIcon } from "@heroicons/vue/24/outline";
 
 let slideIndex = ref(1);
 let nbSlides = ref(4);
 let interval = ref(5000);
+let isStopped = ref(false);
+let keyStopped = ref(0);
 let timer!: any;
 
 onMounted(() => {
@@ -62,7 +79,7 @@ const launchTimer = () => {
 const moveSlide = (moveStep: number) => {
   showSlide(slideIndex.value += moveStep);
   clearInterval(timer);
-  launchTimer();
+  launchCaroussel();
 }
 // change slide with the dots
 const currentSlide = (n: number) => {
@@ -97,5 +114,18 @@ const showSlide = (n: number) => {
   // highlight the active dot
   dots[slideIndex.value - 1].classList.remove('bg-gray-400/90');
   dots[slideIndex.value - 1].classList.add('bg-gray-100');
+}
+
+const stopCaroussel = () => {
+  isStopped.value = true;
+  keyStopped.value ++;
+  clearInterval(timer);
+
+}
+
+const launchCaroussel = () => {
+  isStopped.value = false;
+  keyStopped.value ++;
+  launchTimer();
 }
 </script>

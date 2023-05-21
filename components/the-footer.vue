@@ -27,8 +27,6 @@ const emit = defineEmits(['eventScrollTo']);
 const scrollTop = () => {
   const homePart = document.getElementById('home-part');
 
-  console.log(homePart?.offsetTop)
-
   emit('eventScrollTo', homePart?.offsetTop)
 }
 </script>
